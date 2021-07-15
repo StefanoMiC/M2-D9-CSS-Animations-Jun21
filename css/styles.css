@@ -1,0 +1,182 @@
+:root {
+  --prime-color: #00a8e1;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #0f171e;
+}
+
+.strive-nav-dark {
+  background-color: #0f171e;
+  background-image: linear-gradient(180deg, #1b2530 0, rgba(27, 37, 48, 0.85));
+}
+
+.navbar-dark .nav-item .nav-link {
+  padding: 0;
+  margin: 8px;
+  color: rgba(255, 255, 255, 0.75);
+}
+.navbar-dark .nav-item .nav-link:hover,
+.navbar-dark .nav-item .nav-link:focus {
+  color: rgba(255, 255, 255, 0.95);
+}
+.navbar-dark .active .nav-link {
+  font-weight: 700;
+  border-bottom: 1px solid white;
+}
+
+.dropdown-menu {
+  background-color: #252e39;
+  padding: 0;
+}
+
+.dropdown-item {
+  color: rgb(255 255 255 / 0.75);
+  padding: 14px 48px 14px 16px;
+  border-bottom: 1px solid rgb(50 62 76);
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+  color: white;
+  background-color: transparent;
+}
+
+.carousel-indicators li {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+
+.section-title {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 24px;
+}
+
+.prime-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.infos-container {
+  position: absolute;
+  z-index: 9;
+  transform: translateY(-3.3rem);
+  opacity: 0;
+  /* transition: opacity 0.3s ease, transform 0.3s ease; */
+  transition: all 0.3s ease;
+}
+
+.infos-content {
+  padding: 3rem 1rem 1.5rem;
+  background: linear-gradient(rgba(27, 37, 48, 0), #1b2530 48px);
+}
+
+.infos-content p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transform: translateY(-4px);
+  opacity: 0;
+  transition: all 0.3s ease 0.2s;
+}
+
+.infos-content h6.prime {
+  font-size: 0.9rem;
+  color: var(--prime-color);
+}
+
+.infos-content h6 {
+  font-weight: 600;
+}
+
+.movie-footer {
+  font-size: 0.8rem;
+  transform: translateY(-4px);
+  opacity: 0;
+  transition: all 0.3s ease 0.3s;
+}
+
+.movie-footer i {
+  font-size: 1.2rem;
+}
+
+.strive-card:hover .infos-container {
+  transform: translateY(-3rem);
+  opacity: 1;
+}
+
+.strive-card:hover p,
+.strive-card:hover .movie-footer {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ADDED AFTER THE LECTURE  */
+
+/* FOOTER PROPERTIES: */
+a {
+  color: var(--prime-color);
+}
+
+a:hover {
+  color: #14b5eb;
+}
+
+footer {
+  text-align: center;
+}
+
+footer .footer-logo {
+  display: inline-block;
+  width: 120px;
+  height: 48px;
+  background-image: url("../logo/strivevideo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+footer ul {
+  list-style: none;
+}
+footer ul li {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+footer ul:last-of-type {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* CUSTOM CAROUSEL ARROWS: */
+.carousel-control-next,
+.carousel-control-prev {
+  opacity: 1;
+  width: 8%;
+}
+
+@media (min-width: 992px) {
+  .carousel-control-next,
+  .carousel-control-prev {
+    width: 5%;
+  }
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 42px;
+  height: 42px;
+  filter: drop-shadow(0 6px 3px rgba(0, 0, 0, 0.3));
+}
+.carousel-control-prev-icon {
+  background-image: url(../logo/prev-arrow.svg);
+}
+
+.carousel-control-next-icon {
+  background-image: url(../logo/next-arrow.svg);
+}

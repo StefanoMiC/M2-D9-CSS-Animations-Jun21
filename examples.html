@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 250vh;
+        }
+
+        .box {
+            width: 49.8%;
+            /* height: 100px; */
+            display: inline-block;
+            vertical-align: top;
+            padding: 20px;
+        }
+
+        .coral {
+            background-color: coral;
+        }
+
+        .aqua {
+            background-color: aqua;
+        }
+
+        .box-sm {
+            width: 100px;
+            height: 100px;
+        }
+
+        .box-sm.aqua {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .text-container {
+            width: 200px;
+            display: inline-block;
+            vertical-align: top;
+            min-height: 100px;
+        }
+
+        .ellipsis {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .line-clamp-box {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        section {
+            background-color: #e9e9e9;
+            height: 40vh;
+            width: 75vw;
+            margin: 0 auto;
+            margin-top: 3rem;
+            /* THIS IS WHAT MAKES THE ABSOLUTE ELEMENT REFER TO THIS SECTION */
+            position: relative;
+            z-index: -1;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            color: white;
+            background-color: rgb(36, 36, 36);
+            padding: 2rem 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h4>box-sizing, padding, height, overflow examples:</h4>
+    <div class="box coral">Lorem
+        <!-- <span style="display: inline-block; height: 50px; background-color: white;">ipsum
+            dolor</span> <a href="#">sit
+                amet consectetur</a>
+                <strong>adipisicing</strong> <i>elit</i>. 
+            -->
+        Ipsa dolorem illo quos
+        aspernatur,
+        totam a atque quas earum est ea nemo sed quia cupiditate doloremque ullam alias iusto quisquam asperiores.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum sint ut est saepe consequatur aperiam deserunt
+        adipisci expedita recusandae blanditiis iusto omnis alias, ab nihil suscipit enim animi, assumenda porro.
+        <div style="overflow: hidden; height: 400px"><img src="https://source.unsplash.com/random/"
+                style="height: 100%;" /></div>
+    </div>
+    <div class="box aqua" style="position: relative">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
+        cupiditate soluta earum omnis
+        libero dolores praesentium minus blanditiis quam molestias fuga, inventore magnam mollitia rerum harum
+        reprehenderit deleniti ut atque!
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias ex vel non corporis, iste nam autem,
+        explicabo, quam tempore perferendis nihil doloremque officia accusantium earum aspernatur praesentium labore
+        odio illo.
+
+        <div
+            style="width: 30px; height: 30px; padding: 4px 10px; background-color: white; position: absolute; top: 6px; right: 6px">
+            x
+        </div>
+
+    </div>
+
+    <h4>Text modifiers:</h4>
+
+    <!-- paragraph that cuts the text in one line gracefully -->
+    <div class="text-container" style="background-color: pink;">
+        <p class="ellipsis">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum quod repellat
+            mollitia
+            et adipisci commodi aspernatur magni velit perferendis obcaecati itaque dolores totam odio consectetur nemo.
+            Pariatur, quos recusandae?</p>
+    </div>
+
+    <!-- the way to decide how many lines to show before truncating with an ellipsis -->
+    <div class="text-container" style="background-color: aquamarine">
+        <p class="line-clamp-box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, harum quod repellat
+            mollitia
+            et adipisci commodi aspernatur magni velit perferendis obcaecati itaque dolores totam odio consectetur nemo.
+            Pariatur, quos recusandae?</p>
+    </div>
+
+
+    <h4>Sticky position example:</h4>
+    <nav>Logo</nav>
+
+    <h4>Absolute position example:</h4>
+    <section>
+
+        <div class="box box-sm coral">1</div>
+        <div class="box box-sm aqua">2</div>
+
+    </section>
+
+
+</body>
+
+</html>
