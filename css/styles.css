@@ -5,6 +5,39 @@
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #0f171e;
+  animation: fade-in 4s 0.5s forwards;
+  opacity: 0;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.gradient {
+  background: linear-gradient(
+    270deg,
+    rgb(76, 175, 125) 0%,
+    rgb(165, 230, 13) 100%
+  );
+  background-size: 400% 400%;
+}
+
+@keyframes gradientSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .strive-nav-dark {
@@ -62,18 +95,99 @@ body {
   left: 0;
 }
 
+.strive-card {
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.3s ease-out;
+}
+
 .infos-container {
   position: absolute;
-  z-index: 9;
   transform: translateY(-3.3rem);
   opacity: 0;
   /* transition: opacity 0.3s ease, transform 0.3s ease; */
   transition: all 0.3s ease;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .infos-content {
   padding: 3rem 1rem 1.5rem;
   background: linear-gradient(rgba(27, 37, 48, 0), #1b2530 48px);
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.play-btn:not(:hover) {
+  background: black;
+}
+
+.play-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 50%;
+
+  transform: translateX(-200px);
+  opacity: 0;
+  transition: transform 0.3s ease 0.4s, opacity 0.3s ease-out 0.6s;
+}
+
+.play-btn:hover {
+  animation: gradientSlide 4s ease infinite;
+  border: 0px solid transparent;
+}
+
+.play-btn::before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 2px;
+  margin: auto;
+  border-style: solid;
+  border-width: 7px 0 7px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+.play-btn + span {
+  transform: translateX(-40px);
+  transition: transform 0.3s ease-out 0.4s;
+}
+
+.plus-btn {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.plus-btn::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background-color: white;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.plus-btn::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: white;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
 
 .infos-content p {
@@ -106,9 +220,15 @@ body {
   font-size: 1.2rem;
 }
 
+.strive-card:hover {
+  transform: scale(1.2);
+  z-index: 9;
+}
+
 .strive-card:hover .infos-container {
   transform: translateY(-3rem);
   opacity: 1;
+  pointer-events: initial;
 }
 
 .strive-card:hover p,
@@ -117,7 +237,43 @@ body {
   opacity: 1;
 }
 
+.strive-card:hover .play-btn,
+.strive-card:hover .play-btn + span {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#toaster {
+  position: fixed;
+  right: 20px;
+  top: 100px;
+  z-index: 99;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  opacity: 0;
+  box-shadow: 0 6px 40px rgb(0 0 0 / 35%);
+  animation: gradientSlide 4s ease infinite;
+  transition: opacity 0.3s ease-in;
+}
+
+#toaster.show {
+  opacity: 1;
+}
+
 /* ADDED AFTER THE LECTURE  */
+
+#toaster::before {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  border: 10px solid;
+  border-color: transparent transparent transparent #28a745;
+}
 
 /* FOOTER PROPERTIES: */
 a {

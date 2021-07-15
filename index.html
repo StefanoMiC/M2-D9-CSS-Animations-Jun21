@@ -20,6 +20,9 @@
 </head>
 
 <body>
+    <div id="toaster" class="gradient text-white d-none">
+        I'm a notification
+    </div>
     <nav class="navbar navbar-expand-lg navbar-dark strive-nav-dark px-lg-5">
         <a class="navbar-brand" href="#"><img src="./logo/strivevideo.png" height="50"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -123,6 +126,11 @@
                     <img class="prime-badge" src="./logo/prime.svg" />
                     <div class="infos-container text-white">
                         <div class="infos-content">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="play-btn gradient"></div>
+                                <span class="ml-2">Play</span>
+                                <div class="plus-btn ml-auto"></div>
+                            </div>
                             <h6 class="prime">Included with Prime</h6>
                             <h6>The Tomorrow War</h6>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium eaque, atque ipsum
@@ -258,7 +266,32 @@
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
 
+    <script>
+        const showToaster = function () {
+            const toaster = document.getElementById("toaster")
 
+            setTimeout(function () {
+                toaster.classList.remove("d-none")
+
+            }, 2050)
+            setTimeout(function () {
+                toaster.classList.add("show")
+
+            }, 3000)
+            setTimeout(function () {
+                toaster.classList.remove("show")
+
+            }, 6000)
+            setTimeout(function () {
+                toaster.classList.add("d-none")
+
+            }, 7000)
+            //give enough time for the "show" animation to fade-out before you apply d-none, 
+            //or you will prevent the animation to nicely fade out and be chopped away instead.
+        }
+
+        window.onload = showToaster
+    </script>
 </body>
 
 </html>
